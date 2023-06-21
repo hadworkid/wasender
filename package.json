@@ -1,13 +1,16 @@
 {
-  "name": "wa-sender",
+  "name": "wasender",
   "version": "1.0.0",
   "description": "Wa Sender",
+  "repository": {
+    "url": "git@github.com:hadworkid/wasender.git"
+  },
   "main": "src/index.js",
   "scripts": {
     "test": "node test/index.js && exit 1"
   },
-  "author": "Hadwork",
-  "license": "ISC",
+  "author": "Hadwork ID",
+  "license": "MIT",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@hapi/boom": "^10.0.1",
