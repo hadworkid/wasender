@@ -58,7 +58,7 @@ const {
               }
               if (catchQr) {
                 const base64Qr = await qrcode.toDataURL(update.qr);
-                catchQr(update.qr, base64Qr);
+                catchQr({qr: update.qr, base64Qr});
               }
             } else {
               console.log(`[Session: ${sessionName}] Device is disconnected.`);
