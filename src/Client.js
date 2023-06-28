@@ -1,6 +1,7 @@
 const { parsePhoneNumber } = require("awesome-phonenumber");
 const Validator = require("./validator");
 const { serialize } = require("./lib/serialize");
+const Connection = require('./Connection');
 
 class Client {
   constructor(client, sessionName) {
@@ -28,7 +29,6 @@ class Client {
 
   async onMessageUpsert() {
     this.client.ev.on('messages.upsert', (m) => {
-      console.log(m);
       if(this.onMessageCallback) {
         this.onMessageCallback(m);
       }
@@ -58,6 +58,11 @@ class Client {
       }
       cb(params);
     }
+  }
+
+  async logout() {
+    this.client.end();
+    (new Connection()).deleteSession(this.sessionName);
   }
 }
 
